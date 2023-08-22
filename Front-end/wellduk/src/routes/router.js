@@ -2,9 +2,9 @@ import { createBrowserRouter } from 'react-router-dom'
 import Login from '../pages/Auth/Login'
 import SignUp from '../pages/Auth/SignUp'
 import Main from '../pages/Main/Main'
-import UserNumber from '../pages/Laon/UserNumber'
-import MachineIntroduction from '../pages/Laon/MachineIntroduction'
-import Information from '../pages/Laon/Information'
+import UserNumber from '../pages/Raon/UserNumber'
+import MachineIntroduction from '../pages/Raon/MachineIntroduction'
+import Information from '../pages/Raon/Information'
 import Chatbot from '../pages/Chatbot/Chatbot'
 import Assignment from '../pages/Community/Assignment'
 import Together from '../pages/Community/Together'
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
 				element: <Main />,
 			},
 			{
-				path: 'laon',
+				path: 'raon',
 				element: <UserNumber />,
 				children: [
 					{

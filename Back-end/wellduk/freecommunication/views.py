@@ -30,9 +30,6 @@ class PostModelViewSet(ModelViewSet):
 
         # author 필드를 유효성 검사 이후 따로 넣어줘야 함 
         serializer.validated_data['author'] = request.user
-        now = datetime.now()
-        formatted_time = now.strftime("%Y-%m-%d %H:%M:%S")
-        serializer.validated_data['created_at'] = formatted_time
 
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
@@ -69,9 +66,6 @@ class CommentModelViewSet(ModelViewSet):
         # author 필드를 유효성 검사 이후 따로 넣어줘야 함 
         serializer.validated_data['author'] = request.user
         serializer.validated_data['post'] = post_pk  # 게시물의 ID를 post 필드에 저장
-        now = datetime.now()
-        formatted_time = now.strftime("%Y-%m-%d %H:%M:%S")
-        serializer.validated_data['created_at'] = formatted_time
 
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)

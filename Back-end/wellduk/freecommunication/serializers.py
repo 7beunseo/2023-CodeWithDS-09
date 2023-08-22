@@ -3,9 +3,11 @@ from .models import *
 
 # 소통해요에 올라온 글 리스트
 class PostListSerializer(serializers.ModelSerializer):
+    author = serializers.CharField(source='author.username')
+
     class Meta:
         model = Post
-        fields = ['title','content','create_dt']
+        fields = ['author','title','content','create_dt']
 
 # 소통해요에 글 작성
 class PostCreateSerializer(serializers.ModelSerializer):
@@ -18,7 +20,7 @@ class PostCreateSerializer(serializers.ModelSerializer):
 
 # 소통해요 글 상세보기를 누르면, 해당 게시물에 달린 댓글 리스트를 보여줌 
 class CommentListSerializer(serializers.ModelSerializer):
-    author = serializers.SerializerMethodField()
+    author = serializers.CharField(source='author.username')
 
     def get_author(self, comment):
         return comment.author.username if comment.author else None

@@ -9,21 +9,11 @@ class Post(models.Model):
     update_dt = models.DateTimeField('UPDATE DT', auto_now=True)
     image=models.ImageField()
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,related_name='r_post_author' ,null=True)
-    total=models.IntegerField(default=0)
-    current=models.IntegerField( default=0)
+    where = models.CharField(max_length=100,null=True)
+    url=models.URLField(null=True)
 
     class Meta:
         ordering = ('update_dt',)
 
     def __str__(self):
         return self.title
-    
-class Apply(models.Model):
-    apply=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='togetherr', null=True)
-    post=models.ForeignKey(Post, on_delete=models.CASCADE, related_name='r_post')
-
-class Comment(models.Model):
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,related_name='r_comment_author' ,null=True)
-    post = models.ForeignKey(Post, related_name='r_comments', on_delete=models.CASCADE)
-    content = models.TextField()
-    create_at = models.DateTimeField(auto_now_add=True)

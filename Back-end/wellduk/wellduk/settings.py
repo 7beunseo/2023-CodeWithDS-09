@@ -38,11 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'boards',
     'chats',
     'raons',
     'users',
     'freecommunication',
+    'gather',
 ]
 
 MIDDLEWARE = [

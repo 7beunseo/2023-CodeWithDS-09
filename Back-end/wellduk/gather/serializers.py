@@ -3,7 +3,7 @@ from .models import *
 
 # 같이해요에 올라온 글 리스트
 class PostListSerializer(serializers.ModelSerializer):
-    author = serializers.CharField(source='author.username')
+    author = serializers.CharField(source='author.nickname')
 
     class Meta:
         model = Post
@@ -21,7 +21,7 @@ class PostCreateSerializer(serializers.ModelSerializer):
 
 # 같이해요 글 상세보기 
 class PostRetreiveSerializer(serializers.ModelSerializer):
-    author = serializers.CharField(source='author.username')
+    author = serializers.CharField(source='author.nickname')
     class Meta:
         model=Post
         fields=['author','title','content','create_dt','image']

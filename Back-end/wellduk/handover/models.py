@@ -7,7 +7,7 @@ class Post(models.Model):
     create_dt = models.DateTimeField('CREATE DT', auto_now_add=True)
     update_dt = models.DateTimeField('UPDATE DT', auto_now=True)
     image=models.ImageField()
-    author = models.ForeignKey(User,on_delete=models.CASCADE,related_name='together_post_author' ,null=True)
+    author = models.ForeignKey(User,on_delete=models.CASCADE,related_name='r_post_author' ,null=True)
     total=models.IntegerField(default=0)
     current=models.IntegerField( default=0)
 
@@ -18,11 +18,11 @@ class Post(models.Model):
         return self.title
     
 class Apply(models.Model):
-    apply=models.ForeignKey(User, on_delete=models.CASCADE, related_name='together', null=True)
-    post=models.ForeignKey(Post, on_delete=models.CASCADE, related_name='together_post')
+    apply=models.ForeignKey(User, on_delete=models.CASCADE, related_name='togetherr', null=True)
+    post=models.ForeignKey(Post, on_delete=models.CASCADE, related_name='r_post')
 
 class Comment(models.Model):
-    author = models.ForeignKey(User,on_delete=models.CASCADE,related_name='together_comment_author' ,null=True)
-    post = models.ForeignKey(Post, related_name='together_comments', on_delete=models.CASCADE)
+    author = models.ForeignKey(User,on_delete=models.CASCADE,related_name='r_comment_author' ,null=True)
+    post = models.ForeignKey(Post, related_name='r_comments', on_delete=models.CASCADE)
     content = models.TextField()
     create_at = models.DateTimeField(auto_now_add=True)

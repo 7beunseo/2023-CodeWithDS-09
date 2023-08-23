@@ -42,9 +42,7 @@ INSTALLED_APPS = [
     'raons',
     'users',
     'freecommunication',
-
     'handover',
-
     'gather',
 ]
 

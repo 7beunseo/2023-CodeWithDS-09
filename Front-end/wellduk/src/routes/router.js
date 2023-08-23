@@ -2,14 +2,15 @@ import { createBrowserRouter } from 'react-router-dom'
 import Login from '../pages/Auth/Login'
 import SignUp from '../pages/Auth/SignUp'
 import Main from '../pages/Main/Main'
-import UserNumber from '../pages/Raon/UserNumber'
+import Chatbot from '../pages/Chatbot/Chatbot'
+import Layout from '../components/Layout'
+import TopNav from '../components/Layout/nav/TopNav'
 import MachineIntroduction from '../pages/Raon/MachineIntroduction'
 import Information from '../pages/Raon/Information'
-import Chatbot from '../pages/Chatbot/Chatbot'
+import UserNumber from '../pages/Raon/UserNumber'
 import Assignment from '../pages/Community/Assignment'
 import Together from '../pages/Community/Together'
 import Communication from '../pages/Community/Communication'
-import Layout from '../components/Layout'
 
 const router = createBrowserRouter([
 	{
@@ -25,13 +26,17 @@ const router = createBrowserRouter([
 				element: <SignUp />,
 			},
 			{
-				path: '/',
+				path: '',
 				element: <Main />,
 			},
 			{
 				path: 'raon',
-				element: <UserNumber />,
+				element: <TopNav type={'raon'} />,
 				children: [
+					{
+						path: '',
+						element: <UserNumber />,
+					},
 					{
 						path: 'machine',
 						element: <MachineIntroduction />,
@@ -48,8 +53,12 @@ const router = createBrowserRouter([
 			},
 			{
 				path: 'community',
-				element: <Assignment />,
+				element: <TopNav type={'community'} />,
 				children: [
+					{
+						path: '',
+						element: <Assignment />,
+					},
 					{
 						path: 'together',
 						element: <Together />,

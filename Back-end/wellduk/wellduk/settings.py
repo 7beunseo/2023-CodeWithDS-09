@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     'dj_rest_auth.registration',
     
-    'django.contrib.sites',
     'allauth',
     'allauth.socialaccount',
     'allauth.account',
@@ -61,6 +60,20 @@ INSTALLED_APPS = [
     'freecommunication',
     'handover',
     'gather',
+]
+
+INSTALLED_APPS = [
+	...,
+    'corsheaders',
+]
+
+MIDDLEWARE = [
+	# 최상단에 작성
+    'corsheaders.middleware.CorsMiddleware',
+]
+
+CORS_ALLOWED_ORIGINS = [
+	'http://localhost:3000',
 ]
 
 MIDDLEWARE = [
@@ -166,14 +179,17 @@ REST_FRAMEWORK = {
 
 
 SITE_ID = 1
+
 REST_USE_JWT = True
+
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None # username 필드 사용 x
+
 ACCOUNT_EMAIL_REQUIRED = True            # email 필드 사용 o
+
 ACCOUNT_USERNAME_REQUIRED = False        # username 필드 사용 x
+
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
-
-ACCOUNT_EMAIL_VERIFICATION = 'none' # 회원가입 과정에서 이메일 인증 사용 X
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
@@ -215,3 +231,5 @@ ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
 
 # 이메일에 자동으로 표시되는 사이트 정보
 ACCOUNT_EMAIL_SUBJECT_PREFIX = "[wellduk]"
+
+AUTH_USER_MODEL = 'users.User'

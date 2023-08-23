@@ -13,7 +13,7 @@ class PostListSerializer(serializers.ModelSerializer):
 class PostCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ['title','content','image']
+        fields = ['title','content','image','total']
         extra_kwargs = {
             'image': {'required': False}  # 이미지 필드를 선택적으로 처리
         }

@@ -10,6 +10,8 @@ class Post(models.Model):
     update_dt = models.DateTimeField('UPDATE DT', auto_now=True)
     image=models.ImageField()
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,related_name='post_author' ,null=True)
+    total=models.IntegerField(default=0)
+    current=models.IntegerField( default=0)
 
     class Meta:
         ordering = ('update_dt',)
@@ -22,3 +24,7 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+
+class Apply(models.Model):
+    apply=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='together', null=True)
+    post=models.ForeignKey(Post, on_delete=models.CASCADE, related_name='together_post')

@@ -4,13 +4,16 @@ import GlobalStyles from './styles/global'
 import { RouterProvider } from 'react-router-dom'
 import theme from './styles/theme'
 import router from './routes/router'
+import { RecoilRoot } from 'recoil'
 
 function App() {
 	return (
-		<ThemeProvider theme={theme}>
-			<GlobalStyles />
-			<RouterProvider router={router} />
-		</ThemeProvider>
+		<RecoilRoot>
+			<ThemeProvider theme={theme}>
+				<GlobalStyles />
+				<RouterProvider router={router} />
+			</ThemeProvider>
+		</RecoilRoot>
 	)
 }
 

@@ -62,6 +62,20 @@ INSTALLED_APPS = [
     'gather',
 ]
 
+INSTALLED_APPS = [
+	...,
+    'corsheaders',
+]
+
+MIDDLEWARE = [
+	# 최상단에 작성
+    'corsheaders.middleware.CorsMiddleware',
+]
+
+CORS_ALLOWED_ORIGINS = [
+	'http://localhost:3000',
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -252,4 +266,3 @@ ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
 ACCOUNT_EMAIL_SUBJECT_PREFIX = "[wellduk]"
 
 AUTH_USER_MODEL = 'users.User'
-

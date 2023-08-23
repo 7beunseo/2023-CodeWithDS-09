@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'raons',
     'users',
     'freecommunication',
+    'handover',
 ]
 
 MIDDLEWARE = [

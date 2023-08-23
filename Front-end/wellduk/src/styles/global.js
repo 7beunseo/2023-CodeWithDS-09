@@ -12,6 +12,11 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         margin: 0;
         padding: 0;
+        font-family: 'S-CoreDream-3Light';
+    }
+
+    body {
+        background-color: #FFFAF2;
     }
 
     li {
@@ -22,8 +27,8 @@ const GlobalStyles = createGlobalStyle`
         border: none;
     }
 
-    body {
-    background: ${({ theme }) => theme.COLOR.background};
-}
+    input {
+        outline: none;
+    }
 `
 export default GlobalStyles

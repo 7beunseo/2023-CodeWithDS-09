@@ -1,30 +1,32 @@
 import { BsFillChatLeftDotsFill, BsFillPeopleFill } from 'react-icons/bs'
 import { IoBarbell } from 'react-icons/io5'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 function Main() {
+	const navigate = useNavigate()
 	return (
-		<div>
+		<>
 			<Banner>banner</Banner>
 			<MainContainer>
-				<SubContainer>
+				<SubContainer onClick={() => navigate('/chatbot')}>
 					<Chatbot>
 						<BsFillChatLeftDotsFill size="70" color="white" />
 						<Text>챗봇</Text>
 					</Chatbot>
 				</SubContainer>
 				<SubContainer>
-					<Laon>
+					<Laon onClick={() => navigate('/raon')}>
 						<IoBarbell size="70" color="#FEA82F" />
 						<Text>라온센터</Text>
 					</Laon>
-					<Community>
+					<Community onClick={() => navigate('/community')}>
 						<BsFillPeopleFill size="70" color="white" />
 						<Text>커뮤니티</Text>
 					</Community>
 				</SubContainer>
 			</MainContainer>
-		</div>
+		</>
 	)
 }
 
@@ -63,7 +65,7 @@ const Laon = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: ${({ theme }) => theme.COLOR.sub3};
+	background-color: ${({ theme }) => theme.COLOR.sub[300]};
 	width: 180px;
 	height: 130px;
 `
@@ -73,7 +75,7 @@ const Community = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: ${({ theme }) => theme.COLOR.sub1};
+	background-color: ${({ theme }) => theme.COLOR.sub[100]};
 	width: 180px;
 	height: 130px;
 `

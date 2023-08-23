@@ -1,11 +1,13 @@
 import { BsPerson } from 'react-icons/bs'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 function Header() {
+	const navigate = useNavigate()
 	return (
 		<Container>
-			<Logo>Wellduk</Logo>
-			<BsPerson size="40" />
+			<Logo onClick={() => navigate('/main')}>Wellduk</Logo>
+			<BsPerson size="40" onClick={() => navigate('/login')} />
 		</Container>
 	)
 }

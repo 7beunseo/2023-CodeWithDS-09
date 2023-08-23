@@ -25,5 +25,6 @@ urlpatterns = [
     path('free-communication/',include('freecommunication.urls')),
     path('gather/',include('gather.urls')),
     path('hand-over/',include('handover.urls')),
+    path('user/',include('users.urls')),
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

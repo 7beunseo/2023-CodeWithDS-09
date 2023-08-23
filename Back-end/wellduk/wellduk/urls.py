@@ -23,5 +23,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('raon/',include('raons.urls')),
     path('free-communication/',include('freecommunication.urls')),
+<<<<<<< HEAD
     path('gather/',include('gather.urls')),
+=======
+    path('hand-over/',include('freecommunication.urls')),
+    
+>>>>>>> 8e584b4d5fb18aef745d81eecccb90566e06a3ce
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

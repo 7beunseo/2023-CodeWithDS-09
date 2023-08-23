@@ -3,15 +3,11 @@ from rest_framework.response import Response
 from .models import Chat
 import openai
 from .serializers import *
-openai.api_key = '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'
+openai.api_key = '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'
 
 class ChatViewSet(viewsets.ModelViewSet):
     queryset = Chat.objects.all()
-    def get_serializer_class(self):
-        if self.request.method =='POST':
-            return  ChatListSerializer
-        else:
-            return ChatSerializer 
+    serializer_class = ChatSerializer
 
     def create(self, request, *args, **kwargs):
         user_input = request.data.get('user_input', '')

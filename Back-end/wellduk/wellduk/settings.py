@@ -60,23 +60,19 @@ INSTALLED_APPS = [
     'freecommunication',
     'handover',
     'gather',
+    
+    # 'corsheaders',
+
 ]
 
-INSTALLED_APPS = [
-	...,
-    'corsheaders',
-]
 
-MIDDLEWARE = [
-	# 최상단에 작성
-    'corsheaders.middleware.CorsMiddleware',
-]
 
-CORS_ALLOWED_ORIGINS = [
-	'http://localhost:3000',
-]
+# CORS_ALLOWED_ORIGINS = [
+# 	'http://localhost:3000',
+# ]
 
 MIDDLEWARE = [
+    # 'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

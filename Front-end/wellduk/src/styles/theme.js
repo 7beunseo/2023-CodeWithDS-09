@@ -1,9 +1,10 @@
 const COLOR = {
 	main: '#FEA82F',
-	sub1: '#FFC288',
-	sub2: '#FF6701',
-	sub3: '#FCECDD',
-	backgroud: '#FFFAF2',
+	sub: {
+		100: '#FFC288',
+		200: '#FF6701',
+		300: '#FCECDD',
+	},
 	common: {
 		white: '#FFF',
 		black: '#000',
@@ -18,25 +19,8 @@ const COLOR = {
 	error: '#F44336',
 }
 
-const FONT_SIZE = {
-	tiny: '1.4rem',
-	small: '1.8rem',
-	medium: '2.0rem',
-	large: '2.4rem',
-	big: '3.2rem',
-	huge: '4.8rem',
-}
-
-const FONT_WEIGHT = {
-	light: 'LINESeed-Th',
-	regular: 'LINESeed-Rg',
-	bold: 'LINESeed-Bd',
-}
-
 const theme = {
 	COLOR,
-	FONT_SIZE,
-	FONT_WEIGHT,
 }
 
 export default theme

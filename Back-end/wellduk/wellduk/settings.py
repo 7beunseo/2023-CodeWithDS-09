@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'django.contrib.sites',
+
 
     'rest_framework',
     'rest_framework_simplejwt',
@@ -145,5 +147,11 @@ MEDIA_ROOT=os.path.join(BASE_DIR/'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
 SITE_ID = 1
 
+# =======
+# AUTH_USER_MODEL = 'users.User'
+
+# SITE_ID = 1
+# >>>>>>> 4e5157131306cf2c33d58a9a4f5ea09b8cf2a529

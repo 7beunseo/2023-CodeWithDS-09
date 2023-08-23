@@ -34,7 +34,7 @@ class UsingGenericAPIView(GenericAPIView):
             raon_current += 1
             instance.start_time = datetime.now(timezone.utc)
             response_data = {
-                'username':request.user.username,
+                'username':request.user.nickname,
                 'use': instance.use,
                 'start': instance.start_time.strftime("%Y-%m-%d %H:%M"),
             }
@@ -49,7 +49,7 @@ class UsingGenericAPIView(GenericAPIView):
             hours, remainder = divmod(time_interval_seconds, 3600)
             minutes, seconds = divmod(remainder, 60)
             response_data = {
-                'username':request.user.username,
+                'username':request.user.nickname,
                 'use': instance.use,
                 'duration': f"{int(hours)}시간 {int(minutes)}분 {int(seconds)}초",
                 'start': time_started.strftime("%Y-%m-%d %H:%M"),

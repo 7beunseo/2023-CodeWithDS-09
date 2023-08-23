@@ -23,4 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('raon/',include('raons.urls')),
     path('free-communication/',include('freecommunication.urls')),
+    path('hand-over/',include('freecommunication.urls')),
+    
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

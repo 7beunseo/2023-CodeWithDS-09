@@ -41,13 +41,13 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'email'
     
-    groups = models.ManyToManyField(
-        'auth.Group',  # auth 앱의 Group 모델과 관계 설정
-        related_name='custom_user_groups',  # 관련 이름 변경
-        related_query_name='user',
-    )
-    user_permissions = models.ManyToManyField(
-        'auth.Permission',  # auth 앱의 Permission 모델과 관계 설정
-        related_name='custom_user_permissions',  # 관련 이름 변경
-        related_query_name='user',
-    )
+    # groups = models.ManyToManyField(
+    #     'auth.Group',  # auth 앱의 Group 모델과 관계 설정
+    #     related_name='custom_user_groups',  # 관련 이름 변경
+    #     related_query_name='user',
+    # )
+    # user_permissions = models.ManyToManyField(
+    #     'auth.Permission',  # auth 앱의 Permission 모델과 관계 설정
+    #     related_name='custom_user_permissions',  # 관련 이름 변경
+    #     related_query_name='user',
+    # )

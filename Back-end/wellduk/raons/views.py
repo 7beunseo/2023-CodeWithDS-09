@@ -12,14 +12,17 @@ class UsingGenericAPIView(GenericAPIView):
 
     def get(self, request, *args, **kwargs):
         user = request.user
+
+
         try:
             raon_current = Check.objects.filter(use=True)
             raon_current=raon_current.count()
         except:
             raon_current=0
 
-        instance, created = Check.objects.get_or_create(user=user)
 
+        instance, created = Check.objects.get_or_create(user=user)
+        instance.use = not instance.use
         raon_maximum = 30
 
         if instance.use:
@@ -51,7 +54,7 @@ class UsingGenericAPIView(GenericAPIView):
                 'start': time_started.strftime("%Y-%m-%d %H:%M"),
                 'end': time_ended.strftime("%Y-%m-%d %H:%M"),
             }
-
+        
         instance.save()
 
         return Response(response_data)

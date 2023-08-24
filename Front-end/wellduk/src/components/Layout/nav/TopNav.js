@@ -35,6 +35,7 @@ const NAV_TYPE = {
 
 function TopNav({ type }) {
 	const navigate = useNavigate()
+
 	return (
 		<>
 			<S.Wrapper>

@@ -1,24 +1,40 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { IoBarbell } from 'react-icons/io5'
 import { BsFillPeopleFill } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
 
 function Navigation() {
 	const navigate = useNavigate()
+	const isRaonPage = window.location.pathname.includes('/raon')
+	const isCommunityPage = window.location.pathname.includes('/community')
+
 	if (window.location.pathname === '/chatbot') return null
-	if (window.location.pathname === '/main') return null
+	if (window.location.pathname === '/') return null
+
 	return (
 		<NavBox>
 			<NavBar>
-				<NavContainer onClick={() => navigate('/raon')}>
+				<NavContainerRaon
+					onClick={() => navigate('/raon')}
+					isActive={isRaonPage}
+				>
 					<IoBarbell size="40" />
 					<Text>라온센터</Text>
-				</NavContainer>
-				<NavChatbot onClick={() => navigate('/chatbot')}></NavChatbot>
-				<NavContainer onClick={() => navigate('/community')}>
+				</NavContainerRaon>
+
+				<img
+					src="/img/logo.png"
+					onClick={() => navigate('/chatbot')}
+					style={{ width: '110px', height: '110px' }}
+				/>
+
+				<NavContainerCommunity
+					onClick={() => navigate('/community')}
+					isActive={isCommunityPage}
+				>
 					<BsFillPeopleFill size="40" />
 					<Text>커뮤니티</Text>
-				</NavContainer>
+				</NavContainerCommunity>
 			</NavBar>
 			<NavBlock></NavBlock>
 		</NavBox>
@@ -41,24 +57,28 @@ const NavBlock = styled.div`
 	border-top: 2px solid ${({ theme }) => theme.COLOR.sub[100]};
 `
 
-const NavChatbot = styled.div`
-	width: 110px;
-	height: 110px;
-	border-radius: 50%;
-	background-color: ${({ theme }) => theme.COLOR.main};
-`
-
 const NavBar = styled.div`
 	display: flex;
 	justify-content: space-evenly;
 	padding: 20px;
 `
 
-const NavContainer = styled.div`
+const NavContainer = css`
 	display: flex;
 	align-items: center;
 	justify-content: end;
 	flex-direction: column;
+	color: black;
+`
+
+const NavContainerRaon = styled.div`
+	${NavContainer};
+	${({ isActive }) => isActive && `color: #FEA82F;`}
+`
+
+const NavContainerCommunity = styled.div`
+	${NavContainer};
+	${({ isActive }) => isActive && `color: #FEA82F;`}
 `
 
 const Text = styled.span``

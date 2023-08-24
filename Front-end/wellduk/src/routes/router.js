@@ -11,6 +11,8 @@ import UserNumber from '../pages/Raon/UserNumber'
 import Assignment from '../pages/Community/Assignment'
 import Together from '../pages/Community/Together'
 import Communication from '../pages/Community/Communication'
+import AssignmentWrite from '../pages/Community/AssignmentWrite'
+import CommunicationWrite from '../pages/Community/CommunicationWrite'
 
 const router = createBrowserRouter([
 	{
@@ -66,6 +68,16 @@ const router = createBrowserRouter([
 					{
 						path: 'communication',
 						element: <Communication />,
+						children: [
+							{
+								path: 'write',
+								element: <CommunicationWrite />,
+							},
+						],
+					},
+					{
+						path: 'write',
+						element: <AssignmentWrite />,
 					},
 				],
 			},

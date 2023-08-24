@@ -4,9 +4,10 @@ import styled from 'styled-components'
 
 function Header() {
 	const navigate = useNavigate()
+
 	return (
 		<Container>
-			<Logo onClick={() => navigate('/main')}>Wellduk</Logo>
+			<Logo onClick={() => navigate('/')}>Wellduk</Logo>
 			<BsPerson size="40" onClick={() => navigate('/login')} />
 		</Container>
 	)

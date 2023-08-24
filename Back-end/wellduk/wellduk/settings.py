@@ -66,7 +66,7 @@ INSTALLED_APPS = [
 
 
 CORS_ALLOWED_ORIGINS = [
-	'http://localhost:3000',
+   'http://localhost:3000',
 ]
 
 MIDDLEWARE = [
@@ -260,5 +260,3 @@ ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
 ACCOUNT_EMAIL_SUBJECT_PREFIX = "[wellduk]"
 
 AUTH_USER_MODEL = 'users.User'
-
-CORS_ALLOW_CREDENTIALS = True

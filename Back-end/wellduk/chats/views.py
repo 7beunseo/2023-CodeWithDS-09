@@ -5,11 +5,14 @@ import openai
 from .serializers import *
 
 class ChatViewSet(viewsets.ModelViewSet):
-    queryset = Chat.objects.all()
     serializer_class = ChatSerializer
+    
+    def get_queryset(self):
+        return Chat.objects.filter(user=self.request.user)
 
     def create(self, request, *args, **kwargs):
         user_input = request.data.get('user_input', '')
+        
         if '라온센터' in user_input:
             gpt_response = """위치 : 덕성 하나 누리관 라온센터 2층 https://www.google.com/maps/search/?api=1&query=37.650136,127.018915   \n
 
@@ -39,11 +42,10 @@ class ChatViewSet(viewsets.ModelViewSet):
 또한 AI 채팅을 지원하여 운동에 관한 다양한 정보를 얻을 수 있습니다\n
 웰덕과 함께 해주실거죠?
             """
-        elif "운영시간"==user_input:
-            """
-주중 4일 : 09:00 ~ 20:00 - 교양수업 관계로 매학기 휴관되는 요일이 변동됩니다\n\n
-토-일 : 휴무\n\n
-밯학기간 (월~금) : 09:00
+        elif "운영시간" in user_input:
+            gpt_response="""주중 4일 : 09:00 ~ 20:00 - 교양수업 관계로 매학기 휴관되는 요일이 변동됩니다\n\n
+                토-일 : 휴무\n\n
+                밯학기간 (월~금) : 09:00
             """
         else:
             gpt_response = self.generate_gpt_response(user_input)

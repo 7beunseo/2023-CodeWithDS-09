@@ -8,17 +8,18 @@ from .permissions import *
 class ChatViewSet(viewsets.ModelViewSet):
     serializer_class = ChatSerializer
     permission_classes=[CustomReadOnly]
+
     def get_queryset(self):
-        queryset=Chat.objects.filter(user=self.request.user)
-        return queryset
+        return Chat.objects.filter(user=self.request.user)
 
     def create(self, request, *args, **kwargs):
         user_input = request.data.get('user_input', '')
+
         if "운영시간" in user_input:
             gpt_response="""
 주중 4일 : 09:00 ~ 20:00 - 교양수업 관계로 매학기 휴관되는 요일이 변동됩니다\n\n
 토-일 : 휴무\n\n
-밯학기간 (월~금) : 09:00 ~ 18:00
+밯학기간 (월~금) : 09:00
             """
         elif '라온센터' in user_input:
             gpt_response = """위치 : 덕성 하나 누리관 라온센터 2층 https://www.google.com/maps/search/?api=1&query=37.650136,127.018915   \n
